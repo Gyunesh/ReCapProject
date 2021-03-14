@@ -4,6 +4,7 @@ using Entities.Concrete;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.DataAccess;
 
 namespace DataAccess.Abstract
 {
