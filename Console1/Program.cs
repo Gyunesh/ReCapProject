@@ -10,10 +10,19 @@ namespace Console1
     {
         static void Main(string[] args)
         {
-            carTest();
+            //carTest();
             //MarkaEkleme();
             //RenkSilme();
+            //yenikullanici();
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            customerManager.Add(new Customer {CompanyName="Lamba turizm"});
 
+        }
+
+        private static void NewMethod()
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+            userManager.Add(new User { Id = 6, FirstName = "Gamze", LastName = "Bir", Email = "gamzebir@hotmail.com", Password = "123456" });
         }
 
         private static void RenkSilme()
