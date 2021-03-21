@@ -36,5 +36,6 @@ namespace Business.Constants
         public static string CustomerUpdated="Musteri Guncellendi.";
         public static string RentalAddedError="Kiralama Basarisiz";
         public static string RentalAdded="Kiralama yapildi";
+        public static string CarImageLimitExceeded="Arac fotograf limiti asildi.";
     }
 }
