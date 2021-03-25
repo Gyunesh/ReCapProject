@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Business.BusinessAspects.Autofac;
 
 namespace Business.Concrete
 {
@@ -23,6 +24,7 @@ namespace Business.Concrete
         
         }
 
+        [SecuredOperation("admin")]
         public IResult Add(Car car)
         {
             if (car.DailyPrice > 0)
