@@ -1,12 +1,12 @@
 ﻿using Business.Abstract;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
-using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Entities.Concrete;
 
 namespace Business.Concrete
 {
@@ -28,6 +28,21 @@ namespace Business.Concrete
             _userDal.Delete(user);
             return new SuccessResult();
         }
+        public IResult Update(User user)
+        {
+            _userDal.Update(user);
+            return new SuccessResult();
+        }
+
+        public List<OperationClaim> GetClaims(User user)
+        {
+            return _userDal.GetClaims(user);
+        }
+
+        public IDataResult<User> GetByMail(string email)
+        {
+            return new SuccessDataResult<User>(_userDal.Get(u => u.Email == email));
+        }
 
         public IDataResult<List<User>> GetAll()
         {
@@ -39,10 +54,5 @@ namespace Business.Concrete
             return new SuccessDataResult<User>(_userDal.Get(u=>u.Id==id));
         }
 
-        public IResult Update(User user)
-        {
-            _userDal.Update(user);
-            return new SuccessResult();
-        }
     }
 }

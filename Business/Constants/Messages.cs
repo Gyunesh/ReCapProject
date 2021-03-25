@@ -37,5 +37,13 @@ namespace Business.Constants
         public static string RentalAddedError="Kiralama Basarisiz";
         public static string RentalAdded="Kiralama yapildi";
         public static string CarImageLimitExceeded="Arac fotograf limiti asildi.";
+        public static string AuthorizationDenied="Yekiniz yok!";
+        
+        public static string UserRegistered="Kullanici kaydedildi.";
+        public static string UserNotFound="Kullanici bulunamadi.";
+        public static string PasswordError="Sifre hatali.";
+        public static string SuccessfulLogin="Basarili giris.";
+        public static string UserAlreadyExists="Kullanici zaten var.";
+        public static string AccessTokenCreated="Token olusturuldu.";
     }
 }

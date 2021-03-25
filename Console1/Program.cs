@@ -1,8 +1,9 @@
 ﻿using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
-using Entities.Concrete;
 using System;
+using Entities.Concrete;
+using User = Core.Entities.Concrete.User;
 
 namespace Console1
 {
@@ -14,17 +15,12 @@ namespace Console1
             //MarkaEkleme();
             //RenkSilme();
             //yenikullanici();
-            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
-            customerManager.Add(new Customer {CompanyName="Lamba turizm"});
+            //CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            //customerManager.Add(new Customer {CompanyName="Lamba turizm"});
 
         }
 
-        private static void NewMethod()
-        {
-            UserManager userManager = new UserManager(new EfUserDal());
-            userManager.Add(new User { Id = 6, FirstName = "Gamze", LastName = "Bir", Email = "gamzebir@hotmail.com", Password = "123456" });
-        }
-
+       
         private static void RenkSilme()
         {
             ColorManager colorManager = new ColorManager(new EfColorDal());
