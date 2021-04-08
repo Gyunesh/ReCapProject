@@ -8,7 +8,7 @@ using Core.Entities;
 
 namespace Entities.Concrete
 {
-    public class Image:IEntity
+    public class CarImage:IEntity
     {
         [Key]
         public int Id { get; set; }

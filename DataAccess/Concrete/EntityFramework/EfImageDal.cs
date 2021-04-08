@@ -9,7 +9,7 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfImageDal:EfEntityRepositoryBase<Image, ReCapContext>, IImageDal
+    public class EfImageDal:EfEntityRepositoryBase<CarImage, ReCapContext>, IImageDal
     {
     }
 }

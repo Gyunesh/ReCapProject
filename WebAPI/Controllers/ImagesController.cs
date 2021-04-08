@@ -22,7 +22,7 @@ namespace WebAPI.Controllers
 
         [HttpPost("Add")]
 
-        public IActionResult Add([FromForm(Name = ("Image"))] IFormFile file, [FromForm] Image image)
+        public IActionResult Add([FromForm(Name = ("Image"))] IFormFile file, [FromForm] CarImage image)
         {
             var result = _imageService.Add(image,file);
             if (result.Success)
@@ -76,9 +76,9 @@ namespace WebAPI.Controllers
 
         [HttpGet("GetById")]
 
-        public IActionResult GetById([FromForm(Name =("Id"))] int Id)
+        public IActionResult GetById( int id)
         {
-            var result = _imageService.GetById(Id);
+            var result = _imageService.GetById(id);
             if (result.Success)
             {
                 return Ok(result);

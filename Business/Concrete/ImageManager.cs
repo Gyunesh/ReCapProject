@@ -27,7 +27,7 @@ namespace Business.Concrete
         }
         
         [ValidationAspect(typeof(ImageValidator))]
-        public IResult Add(Image image, IFormFile file)
+        public IResult Add(CarImage image, IFormFile file)
         {
             IResult result = BusinessRules.Run(CheckImageLimitExceeded(image.CarId));
             if (result != null)
@@ -52,30 +52,30 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        public IResult Delete(Image image)
+        public IResult Delete(CarImage image)
         {
             FileHelper.Delete(image.ImagePath);
             _imageDal.Delete(image);
             return new SuccessResult();
         }
 
-        public IDataResult<List<Image>> GetAll()
+        public IDataResult<List<CarImage>> GetAll()
         {
-            return new SuccessDataResult<List<Image>>(_imageDal.GetAll());
+            return new SuccessDataResult<List<CarImage>>(_imageDal.GetAll());
         }
 
-        public IDataResult<Image> GetById(int id)
+        public IDataResult<CarImage> GetById(int id)
         {
             IResult result = BusinessRules.Run(CheckIfCarImageNull(id));
             if (result!=null)
             {
-                return new ErrorDataResult<Image>();
+                return new ErrorDataResult<CarImage>();
             }
 
-            return new SuccessDataResult<Image>();
+            return new SuccessDataResult<CarImage>();
         }
 
-        private IDataResult<Image> CheckIfCarImageNull(int id)
+        private IDataResult<CarImage> CheckIfCarImageNull(int id)
         {
             try
             {
@@ -85,23 +85,23 @@ namespace Business.Concrete
 
                 if (!result)
                 {
-                    List<Image> image = new List<Image>();
+                    List<CarImage> image = new List<CarImage>();
 
-                    image.Add(new Image { CarId = id, ImagePath = path, Date = DateTime.Now });
+                    image.Add(new CarImage { CarId = id, ImagePath = path, Date = DateTime.Now });
 
-                    return new SuccessDataResult<Image>();
+                    return new SuccessDataResult<CarImage>();
                 }
             }
             catch (Exception exception)
             {
 
-                return new ErrorDataResult<Image>();
+                return new ErrorDataResult<CarImage>();
             }
 
-            return new SuccessDataResult<Image> ();
+            return new SuccessDataResult<CarImage> ();
         }
 
-        public IResult Update(Image image, IFormFile file)
+        public IResult Update(CarImage image, IFormFile file)
         {
             IResult result = BusinessRules.Run(CheckImageLimitExceeded(image.CarId));
             if (result != null)
